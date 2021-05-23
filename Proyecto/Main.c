@@ -3,7 +3,7 @@
 #include "C:\\Users\\JP\\Desktop\\escuela\\NPCAP\\npcap-sdk-1.06\\Include\\pcap.h"
 #include <pcap.h>
 #define LINE_LEN 16
-#define RUTA "C:\\Users\\JP\\Desktop\\escuela\\Redes\\P2\\paquetes3.pcap"
+#define RUTA "C:\\Users\\JP\\Desktop\\escuela\\Redes\\Proyecto\\paquetes3.pcap"
 #define 	PCAP_OPENFLAG_PROMISCUOUS   1
 #define 	PCAP_SRC_FILE   2
 #define 	PCAP_BUF_SIZE   1024
@@ -75,38 +75,49 @@ void dispatcher_handler(u_char *temp1, const struct pcap_pkthdr *header, const u
 
     while(opcion != 4){
         printf("Interfaz de inicio para el analizador de tramas\n");
-        printf("1)Analizador ARP\n2)IP\n3)IEEE\n4)Salir");
+        printf("1)Analizador ARP\n2)IP\n3)IEEE\n4)Salir\n");
         scanf("%d", &opcion);
 
         switch (opcion)
         {
         case 1:
-            arp(&pkt_data);
+            arp(&temp1,&header,&pkt_data);
             break;
 
         case 2:
-            ip(&pkt_data);
+            ip(&temp1,&header,&pkt_data);
             break;
 
         case 3:
-            ieee(&pkt_data);
+            ieee(&temp1,&header,&pkt_data);
             break;
 
         case 4:
-            return;
+            exit(0);
             break;
 
         default:
             puts("Opcion no valida");
             break;
         }
+        puts("\n");
     }
-    
+   
 
 }
 
-void arp(const u_char *pkt_data){
-    printf("ARP\n");
+void arp(u_char *temp1, const struct pcap_pkthdr *header, const u_char *pkt_data){
+    
+    u_int i=0;
+    int ext, j; //Extendido / No extendido
+    int tipo; // 0 = I; 1 = S; 2 = U;
+    unsigned int T_L, aux; 
+	unsigned char i_g;
+	unsigned char c_r;
+    int opcion = 0;
+
+
+
     return;
 }
 
