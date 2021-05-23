@@ -8,7 +8,7 @@
 #define 	PCAP_SRC_FILE   2
 #define 	PCAP_BUF_SIZE   1024
 
-
+//Version de prueba 1
 void dispatcher_handler(u_char *, const struct pcap_pkthdr *, const u_char *);
 void tipoI(unsigned char, unsigned char, int);
 void tipoS(unsigned char, unsigned char, int);
