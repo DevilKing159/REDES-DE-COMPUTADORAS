@@ -97,7 +97,7 @@ void dispatcher_handler(u_char *temp1, const struct pcap_pkthdr *header, const u
             break;
 
         default:
-            puts("Opcion no valida")
+            puts("Opcion no valida");
             break;
         }
     }
